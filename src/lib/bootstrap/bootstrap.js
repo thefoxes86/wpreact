@@ -1,5 +1,5 @@
 import BaseComponent from "../../pages/Base/Base";
-import React from "react";
+import React, { StrictMode } from "react";
 import getRoutes from "./getRoutes";
 
 export default function bootstrap(url, id) {
@@ -12,6 +12,7 @@ export default function bootstrap(url, id) {
       .then((res) => {
         res.json().then((response) => {
           const routes = getRoutes(response.items, BaseComponent);
+          console.log(routes);
           resolve(routes);
         });
       })

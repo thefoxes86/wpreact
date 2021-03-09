@@ -6,8 +6,11 @@ export default function Pages(props) {
   rest
     .then((response) => {
       console.log(response);
+      return <div>Ciao</div>;
     })
     .catch((error) => {
       console.log(error);
+      return <div>Errore</div>;
     });
+  return <div>Ciao</div>;
 }

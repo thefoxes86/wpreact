@@ -1,4 +1,4 @@
-function apiRequest(endpoint, headers) {
+export default function apiRequest(endpoint, headers = null) {
   return new Promise((resolve, reject) => {
     const result = fetch(endpoint);
 

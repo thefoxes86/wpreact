@@ -5,16 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 import { Route, Switch, Router } from "react-router-dom";
 import history from "./lib/history";
 import bootstrap from "./lib/bootstrap/bootstrap";
-import getRoutes from "./lib/bootstrap/getRoutes";
-
+import Menu from "./components/Menu";
 export default function App({ routes }) {
   return (
-    <Router history={history}>
-      <div>
-        {console.log(routes)}
-        <Switch>{routes}</Switch>
-      </div>
-    </Router>
+    <React.StrictMode>
+      <Router history={history}>
+        <div className="App">
+          <Menu routes={routes} />
+          <Switch>{routes}</Switch>
+        </div>
+      </Router>
+    </React.StrictMode>
   );
 }
 

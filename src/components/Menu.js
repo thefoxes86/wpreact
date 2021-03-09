@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Menu({ routes }) {
+  console.log(routes);
   return (
     <nav>
       <ul>
         {routes &&
-          routes.map(({ title, object_slug, url }) => (
-            <li>
-              <Link key={object_slug} to={object_slug}>
-                {title}
+          routes.map(({ props }) => (
+            <li key={props.path}>
+              <Link key={props.path} to={props.path}>
+                {props.path}
               </Link>
             </li>
           ))}

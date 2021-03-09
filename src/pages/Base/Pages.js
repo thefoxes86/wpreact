@@ -4,4 +4,8 @@ const Pages = LoadComponent({
   loader: () => import("../Pages"),
 });
 
-export { Pages };
+const Posts = LoadComponent({
+  loader: () => import("../Posts"),
+});
+
+export { Pages, Posts };
