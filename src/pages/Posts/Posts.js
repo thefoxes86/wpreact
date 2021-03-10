@@ -10,4 +10,5 @@ export default function Posts(props) {
     .catch((error) => {
       console.log(error);
     });
+  return <h1>{props.viewName}</h1>;
 }

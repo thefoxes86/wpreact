@@ -2,7 +2,6 @@ import Loadable from "react-loadable";
 import Loading from "../../components/Loading";
 
 export default function LoadComponent(opts) {
-  console.log(opts);
   return Loadable(
     Object.assign(
       {

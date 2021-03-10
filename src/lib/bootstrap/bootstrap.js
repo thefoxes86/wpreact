@@ -12,7 +12,7 @@ export default function bootstrap(url, id) {
       .then((res) => {
         res.json().then((response) => {
           const routes = getRoutes(response.items, BaseComponent);
-          console.log(routes);
+
           resolve(routes);
         });
       })

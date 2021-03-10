@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Menu({ routes }) {
-  console.log(routes);
   return (
     <nav>
       <ul>

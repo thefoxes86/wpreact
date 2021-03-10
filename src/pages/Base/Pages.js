@@ -1,11 +1,11 @@
 import LoadComponent from "../../lib/LoadComponent";
 
-const Pages = LoadComponent({
-  loader: () => import("../Pages"),
+const Page = LoadComponent({
+  loader: () => import("../Page"),
 });
 
 const Posts = LoadComponent({
   loader: () => import("../Posts"),
 });
 
-export { Pages, Posts };
+export { Page, Posts };

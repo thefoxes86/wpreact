@@ -6,6 +6,8 @@ import { Route, Switch, Router } from "react-router-dom";
 import history from "./lib/history";
 import bootstrap from "./lib/bootstrap/bootstrap";
 import Menu from "./components/Menu";
+import BaseComponent from "./pages/Base/Base";
+import Posts from "./pages/Posts";
 export default function App({ routes }) {
   return (
     <React.StrictMode>

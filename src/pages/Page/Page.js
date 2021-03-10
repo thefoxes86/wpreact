@@ -1,7 +1,8 @@
 import React from "react";
 import apiRequest from "../../lib/apiRequest";
 
-export default function Pages(props) {
+export default function Page(props) {
+  console.log("ciao");
   const rest = apiRequest("https://xdesigners.it/wp-json/wp/v2/pages");
   rest
     .then((response) => {
@@ -12,5 +13,5 @@ export default function Pages(props) {
       console.log(error);
       return <div>Errore</div>;
     });
-  return <div>Ciao</div>;
+  return <h1>Ciao</h1>;
 }
