@@ -4,8 +4,20 @@ const Page = LoadComponent({
   loader: () => import("../Page"),
 });
 
-const Posts = LoadComponent({
-  loader: () => import("../Posts"),
+const SinglePost = LoadComponent({
+  loader: () => import("../Post"),
 });
 
-export { Page, Posts };
+const Archive = LoadComponent({
+  loader: () => import("../Archive"),
+});
+
+const Category = LoadComponent({
+  loader: () => import("../Category"),
+});
+
+const Home = LoadComponent({
+  loader: () => import("../Home"),
+});
+
+export { Page, SinglePost, Archive, Home, Category };

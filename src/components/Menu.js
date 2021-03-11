@@ -6,11 +6,9 @@ export default function Menu({ routes }) {
     <nav>
       <ul>
         {routes &&
-          routes.map(({ props }) => (
-            <li key={props.path}>
-              <Link key={props.path} to={props.path}>
-                {props.path}
-              </Link>
+          routes.map((props, index) => (
+            <li key={index}>
+              <Link to={props.slug}>{props.title}</Link>
             </li>
           ))}
       </ul>

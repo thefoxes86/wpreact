@@ -1,8 +1,9 @@
 import React from "react";
 import apiRequest from "../../lib/apiRequest";
 
-export default function Posts(props) {
+export default function Post(props) {
   const rest = apiRequest("https://xdesigners.it/wp-json/wp/v2/posts");
+
   rest
     .then((response) => {
       console.log(response);
@@ -10,5 +11,5 @@ export default function Posts(props) {
     .catch((error) => {
       console.log(error);
     });
-  return <h1>{props.viewName}</h1>;
+  return <h1>{props.title}</h1>;
 }

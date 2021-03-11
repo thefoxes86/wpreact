@@ -1,12 +1,11 @@
 import React from "react";
 import * as Pages from "../Base/Pages";
 
-export default (Base) => {
-  console.log("cicicic");
-  const PageComponent = Pages[Base.component];
+export default function BaseComponent(props) {
+  const PageComponent = Pages[props.component];
   return (
     <React.Fragment>
-      <PageComponent title={Base.viewName} />
+      <PageComponent title={props.title} {...props} />
     </React.Fragment>
   );
-};
+}

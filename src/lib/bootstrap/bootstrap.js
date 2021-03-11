@@ -11,7 +11,7 @@ export default function bootstrap(url, id) {
     request
       .then((res) => {
         res.json().then((response) => {
-          const routes = getRoutes(response.items, BaseComponent);
+          const routes = getRoutes(response.items);
 
           resolve(routes);
         });

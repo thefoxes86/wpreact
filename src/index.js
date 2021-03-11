@@ -1,20 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import "./index.css";
-import reportWebVitals from "./reportWebVitals";
-import { Route, Switch, Router } from "react-router-dom";
-import history from "./lib/history";
 import bootstrap from "./lib/bootstrap/bootstrap";
-import Menu from "./components/Menu";
+import history from "./lib/history";
+import reportWebVitals from "./reportWebVitals";
 import BaseComponent from "./pages/Base/Base";
-import Posts from "./pages/Posts";
+
+const mainUrl = "https://xdesigners.it";
 export default function App({ routes }) {
   return (
     <React.StrictMode>
       <Router history={history}>
         <div className="App">
-          <Menu routes={routes} />
-          <Switch>{routes}</Switch>
+          <Switch>
+            {routes &&
+              routes.map((props, index) => (
+                <Route
+                  exact
+                  key={index}
+                  path={"/" + props.slug}
+                  viewName={props.title}
+                >
+                  <BaseComponent
+                    {...props}
+                    component={props.component}
+                    routes={routes}
+                    mainUrl={mainUrl}
+                  />
+                </Route>
+              ))}
+          </Switch>
         </div>
       </Router>
     </React.StrictMode>

@@ -1,23 +1,23 @@
 import { config } from "process";
 import React from "react";
 import { Route } from "react-router-dom";
-import BaseComponent from "../../pages/Base/Base";
+import Posts from "../../pages/Post";
 
-export default (routes, BaseComponent) => {
+export default (routes) => {
   const configRoutes = [];
   routes &&
     routes.map((route, index) => {
-      configRoutes.push(
-        <Route
-          exact
-          key={index}
-          path={route.object_slug}
-          viewName={route.title}
-        >
-          <BaseComponent viewName={route.title} component="Posts" />
-        </Route>
-      );
+      let componentElement =
+        route.object.charAt(0).toUpperCase() + route.object.slice(1);
+
+      let objToPush = {
+        title: route.title,
+        slug: route.object_slug,
+        component: componentElement,
+        route,
+      };
+      configRoutes.push(objToPush);
     });
-  console.log(configRoutes);
+
   return configRoutes;
 };
