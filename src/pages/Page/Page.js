@@ -1,28 +1,19 @@
-import React, { useState } from "react";
-import apiRequest from "../../lib/apiRequest";
+import React, { useEffect, useState } from "react";
+import { useFetch } from "../../lib/useFetch";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Sidebar from "../../components/Sidebar";
 
 export default function Page(props) {
-  const rest = apiRequest(
-    props.mainUrl + "/wp-json/wp/v2/pages/" + props.route.object_id
-  );
-  const [pageProps, setPageProps] = useState();
-  const [loading, setLoading] = useState(true);
-  rest
-    .then((response) => {
-      console.log(response);
-      setPageProps(response);
-      setLoading(false);
-    })
-    .catch((error) => console.log(error));
+  const url =
+    props && props.mainUrl + "/wp-json/wp/v2/pages/" + props.route.object_id;
+  const { status, data } = useFetch(url);
 
   return (
-    !loading && (
+    status === "fetched" && (
       <React.Fragment>
         <Header routes={props.routes} {...props} />
-        <div className="content">{pageProps.author}</div>
+        <div className="content">{data.content.rendered}</div>
         <Sidebar />
         <Footer />
       </React.Fragment>
