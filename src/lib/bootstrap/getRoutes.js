@@ -10,9 +10,16 @@ export default (routes) => {
       let componentElement =
         route.object.charAt(0).toUpperCase() + route.object.slice(1);
 
+      let slug =
+        route.object_slug === "home" || route.object_slug === "homepage"
+          ? "/"
+          : route.object_slug;
+
+      console.log(componentElement);
+
       let objToPush = {
         title: route.title,
-        slug: route.object_slug,
+        slug: slug,
         component: componentElement,
         route,
       };
